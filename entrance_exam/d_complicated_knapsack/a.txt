@@ -1,0 +1,229 @@
+Weight 1:
+Weight 2:
+
+	Before counts: 0 0 0 0 0 0 0 
+
+	After counts:0 0 0 0 0 1 0 
+	Using move (2, 4) gives value 0 + 4 = 4 from weight 0
+	Current counts: 0 0 0 0 0 1 0 
+
+	Previous counts: 0 0 0 0 0 0 0 
+
+Weight 3:
+
+	Before counts: 0 0 0 0 0 0 0 
+
+	After counts:1 0 0 0 0 0 0 
+	Using move (3, 6) gives value 0 + 6 = 6 from weight 0
+	Current counts: 1 0 0 0 0 0 0 
+
+	Previous counts: 0 0 0 0 0 0 0 
+
+Weight 4:
+
+	Before counts: 0 0 0 0 0 0 0 
+
+	After counts:0 0 0 0 0 0 1 
+	Using move (4, 11) gives value 0 + 11 = 11 from weight 0
+	Current counts: 0 0 0 0 0 0 1 
+
+	Previous counts: 0 0 0 0 0 0 0 
+
+Weight 5:
+
+	Before counts: 0 0 0 0 0 0 0 
+
+	After counts:0 1 0 0 0 0 0 
+	Using move (5, 19) gives value 0 + 19 = 19 from weight 0
+	Current counts: 0 1 0 0 0 0 0 
+
+	Previous counts: 0 0 0 0 0 0 0 
+
+Weight 6:
+
+	Before counts: 0 0 0 0 0 0 0 
+
+	After counts:0 1 0 0 0 0 0 
+	Using move (5, 19) gives value 0 + 19 = 19 from weight 1
+	Current counts: 0 1 0 0 0 0 0 
+
+	Previous counts: 0 0 0 0 0 0 0 
+
+Weight 7:
+
+	Before counts: 0 0 0 0 0 1 0 
+
+	After counts:0 1 0 0 0 1 0 
+	Using move (5, 19) gives value 4 + 19 = 23 from weight 2
+	Current counts: 0 1 0 0 0 1 0 
+
+	Previous counts: 0 0 0 0 0 1 0 
+
+Weight 8:
+
+	Before counts: 0 1 0 0 0 0 0 
+
+	After counts:1 1 0 0 0 0 0 
+	Using move (3, 6) gives value 19 + 6 = 25 from weight 5
+	Current counts: 1 1 0 0 0 0 0 
+
+	Previous counts: 0 1 0 0 0 0 0 
+
+Weight 9:
+
+	Before counts: 0 0 0 0 0 0 1 
+
+	After counts:0 1 0 0 0 0 1 
+	Using move (5, 19) gives value 11 + 19 = 30 from weight 4
+	Current counts: 0 1 0 0 0 0 1 
+
+	Previous counts: 0 0 0 0 0 0 1 
+
+Weight 10:
+
+	Before counts: 0 1 0 0 0 0 0 
+
+	After counts:0 2 0 0 0 0 0 
+	Using move (5, 19) gives value 19 + 19 = 38 from weight 5
+	Current counts: 0 2 0 0 0 0 0 
+
+	Previous counts: 0 1 0 0 0 0 0 
+
+Weight 11:
+
+	Before counts: 0 1 0 0 0 0 0 
+
+	After counts:0 2 0 0 0 0 0 
+	Using move (5, 19) gives value 19 + 19 = 38 from weight 6
+	Current counts: 0 2 0 0 0 0 0 
+
+	Previous counts: 0 1 0 0 0 0 0 
+
+Weight 12:
+
+	Before counts: 0 1 0 0 0 1 0 
+
+	After counts:0 2 0 0 0 1 0 
+	Using move (5, 19) gives value 23 + 19 = 42 from weight 7
+	Current counts: 0 2 0 0 0 1 0 
+
+	Previous counts: 0 1 0 0 0 1 0 
+
+Weight 13:
+
+	Before counts: 0 2 0 0 0 0 0 
+
+	After counts:1 2 0 0 0 0 0 
+	Using move (3, 6) gives value 38 + 6 = 44 from weight 10
+	Current counts: 1 2 0 0 0 0 0 
+
+	Previous counts: 0 2 0 0 0 0 0 
+
+Weight 14:
+
+	Before counts: 0 1 0 0 0 0 1 
+
+	After counts:0 2 0 0 0 0 1 
+	Using move (5, 19) gives value 30 + 19 = 49 from weight 9
+	Current counts: 0 2 0 0 0 0 1 
+
+	Previous counts: 0 1 0 0 0 0 1 
+
+Weight 15:
+
+	Before counts: 0 2 0 0 0 0 0 
+
+	After counts:0 2 0 0 0 0 1 
+	Using move (4, 11) gives value 38 + 11 = 49 from weight 11
+	Current counts: 0 2 0 0 0 0 1 
+
+	Previous counts: 0 2 0 0 0 0 0 
+
+Weight 16:
+
+	Before counts: 0 2 0 0 0 0 1 
+
+	After counts:0 2 0 0 0 1 1 
+	Using move (2, 4) gives value 49 + 4 = 53 from weight 14
+	Current counts: 0 2 0 0 0 1 1 
+
+	Previous counts: 0 2 0 0 0 0 1 
+
+Weight 17:
+
+	Before counts: 0 2 0 0 0 0 1 
+
+	After counts:1 2 0 0 0 0 1 
+	Using move (3, 6) gives value 49 + 6 = 55 from weight 14
+	Current counts: 1 2 0 0 0 0 1 
+
+	Previous counts: 0 2 0 0 0 0 1 
+
+Weight 18:
+
+	Before counts: 0 2 0 0 0 0 1 
+
+	After counts:0 2 0 0 0 0 2 
+	Using move (4, 11) gives value 49 + 11 = 60 from weight 14
+	Current counts: 0 2 0 0 0 0 2 
+
+	Previous counts: 0 2 0 0 0 0 1 
+
+Weight 19:
+
+	Before counts: 0 2 0 0 0 0 1 
+
+	After counts:0 2 0 0 0 0 2 
+	Using move (4, 11) gives value 49 + 11 = 60 from weight 15
+	Current counts: 0 2 0 0 0 0 2 
+
+	Previous counts: 0 2 0 0 0 0 1 
+
+Weight 20:
+
+	Before counts: 0 2 0 0 0 0 2 
+
+	After counts:0 2 0 0 0 1 2 
+	Using move (2, 4) gives value 60 + 4 = 64 from weight 18
+	Current counts: 0 2 0 0 0 1 2 
+
+	Previous counts: 0 2 0 0 0 0 2 
+
+Weight 21:
+
+	Before counts: 0 2 0 0 0 0 2 
+
+	After counts:1 2 0 0 0 0 2 
+	Using move (3, 6) gives value 60 + 6 = 66 from weight 18
+	Current counts: 1 2 0 0 0 0 2 
+
+	Previous counts: 0 2 0 0 0 0 2 
+
+weights: 	3 5 5 9 8 2 4 
+values: 	6 19 5 16 5 4 11 
+0:	0 0 0 0 0 0 0 
+1:	0 0 0 0 0 0 0 
+2:	0 0 0 0 0 1 0 
+3:	1 0 0 0 0 0 0 
+4:	0 0 0 0 0 0 1 
+5:	0 1 0 0 0 0 0 
+6:	0 1 0 0 0 0 0 
+7:	0 1 0 0 0 1 0 
+8:	1 1 0 0 0 0 0 
+9:	0 1 0 0 0 0 1 
+10:	0 2 0 0 0 0 0 
+11:	0 2 0 0 0 0 0 
+12:	0 2 0 0 0 1 0 
+13:	1 2 0 0 0 0 0 
+14:	0 2 0 0 0 0 1 
+15:	0 2 0 0 0 0 1 
+16:	0 2 0 0 0 1 1 
+17:	1 2 0 0 0 0 1 
+18:	0 2 0 0 0 0 2 
+19:	0 2 0 0 0 0 2 
+20:	0 2 0 0 0 1 2 
+21:	1 2 0 0 0 0 2 
+
+max items: 2
+0 0 4 6 11 19 19 23 25 30 38 38 42 44 49 49 53 55 60 60 64 66 
+66
