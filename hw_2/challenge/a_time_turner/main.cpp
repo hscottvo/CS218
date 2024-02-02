@@ -1,20 +1,15 @@
-#include <iostream>
-#include <queue>
-#include <utility>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 struct comp_end {
   constexpr bool operator()(pair<int, int> const &a,
                             pair<int, int> const &b) const noexcept {
-    // return a.second < b.second;
     if (a.first != b.first) {
       return a.first < b.first;
     } else {
-      return a.second > b.second;
+      return a.second < b.second;
     }
-    // return a.first < b.first;
   }
 };
 
@@ -46,25 +41,33 @@ int main() {
 
     int *sched_ptr;
 
-    if (top_sched < bot_sched) {
-      sched_ptr = &bot_sched;
+    // if both work, take the one with the closer bound
+    if (end_time < top_sched && end_time < bot_sched) {
+      // cout << "\tend time: " << end_time << ", top_sched: " << top_sched
+      //      << ", bot_sched: " << bot_sched << endl;
+      // cout << '\t' << (end_time < bot_sched) << endl;
+      if (top_sched < bot_sched) {
+        sched_ptr = &top_sched;
+      } else {
+        sched_ptr = &bot_sched;
+      }
+    } else if (end_time >= top_sched && end_time >= bot_sched) {
+      continue;
     } else {
-      sched_ptr = &top_sched;
+      if (end_time >= top_sched) {
+        sched_ptr = &bot_sched;
+      } else if (end_time >= bot_sched) {
+        sched_ptr = &top_sched;
+      }
     }
-    if (sched_ptr == &bot_sched) {
-      // cout << "\tAdding to bot schedule value " << bot_sched << endl;
-    } else {
-      // cout << "\tAdding to top schedule value " << top_sched << endl;
-    }
+    // if (sched_ptr == &bot_sched) {
+    //   cout << "\tAdding to bot schedule value " << bot_sched << endl;
+    // } else {
+    //   cout << "\tAdding to top schedule value " << top_sched << endl;
+    // }
 
-    if (end_time < *sched_ptr) {
-      // cout << "\tCan add to value: " << *sched_ptr << endl;
-      *sched_ptr = start_time;
-      // cout << "\tNew value: " << *sched_ptr << endl;
-      class_count++;
-    } else {
-      // cout << "\tCan't add" << endl;
-    }
+    *sched_ptr = start_time;
+    class_count++;
   }
 
   // cout << "count: " << class_count << endl;
