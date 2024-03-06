@@ -4,7 +4,8 @@
 using namespace std;
 
 double distance(int x1, int y1, int x2, int y2) {
-  return sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2));
+  // return sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2));
+  return pow(x1 - x2, 2) + pow(y1 - y2, 2);
 }
 
 bool valid(int x1, int y1, int x2, int y2, int r) {
@@ -15,8 +16,28 @@ bool valid(int x1, int y1, int x2, int y2, int r) {
 }
 
 bool find(int i, int m, int n, vector<bool> &b, vector<int> &p,
-          vector<vector<bool>> adj) {
+          vector<vector<bool>> &adj) {
   for (int j = 0; j < m; j++) {
+    // if (i >= (int)adj.size()) {
+    //   cout << "-1" << endl;
+    //   exit(0);
+    // }
+
+    // if (j + n >= (int)adj.at(0).size()) {
+    //   cout << "-1" << endl;
+    //   exit(0);
+    // }
+
+    if (j >= (int)b.size()) {
+      cout << "-1" << endl;
+      exit(0);
+    }
+
+    // if (j >= (int)p.size()) {
+    //   cout << "-1" << endl;
+    //   exit(0);
+    // }
+
     if (adj.at(i).at(j + n) && !b.at(j)) {
       b.at(j) = true;
       if (p.at(j) == -1 || find(p.at(j), m, n, b, p, adj)) {
@@ -44,7 +65,7 @@ int main() {
     cin >> x_val >> y_val >> r_val;
     x[i] = x_val;
     y[i] = y_val;
-    r[i] = r_val * b;
+    r[i] = pow(r_val * b, 2);
   }
 
   for (int i = 0; i < m; i++) {
@@ -67,42 +88,15 @@ int main() {
     }
   }
 
-  // cout << "  a b c 1 2 3" << endl;
-  // for (unsigned int i = 0; i < adj.size(); i++) {
-  //   if ((int)i < n) {
-  //     cout << char(i + 'a') << ' ';
-  //   } else if ((int)i < n + m) {
-  //     cout << (int)i - n + 1 << ' ';
-  //   }
-  //   for (unsigned int j = 0; j < adj[i].size(); j++) {
-  //     cout << adj[i][j] << ' ';
-  //   }
-  //   cout << endl;
-  // }
-
   vector<int> p(m, -1);
   int count = 0;
   for (int i = 0; i < n; i++) {
-    vector<bool> b(n, false);
-    // cout << find(i, m, n, b, p, adj) << endl;
+    vector<bool> b(n + m, false);
     if (!find(i, m, n, b, p, adj)) {
       count++;
     }
   }
   cout << count << endl;
-
-  // cout << "  a b c 1 2 3" << endl;
-  // for (unsigned int i = 0; i < adj.size(); i++) {
-  //   if ((int)i < n) {
-  //     cout << char(i + 'a') << ' ';
-  //   } else if ((int)i < n + m) {
-  //     cout << (int)i - n + 1 << ' ';
-  //   }
-  //   for (unsigned int j = 0; j < adj[i].size(); j++) {
-  //     cout << adj[i][j] << ' ';
-  //   }
-  //   cout << endl;
-  // }
 
   return 0;
 }
