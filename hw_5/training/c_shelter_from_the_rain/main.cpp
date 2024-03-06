@@ -22,7 +22,8 @@ bool valid(int x1, int y1, int x2, int y2, int r) {
 }
 
 // bfs
-void calc_levels(vector<vector<bool>> &adj, vector<int> &levels) {
+// void calc_levels(vector<vector<bool>> &adj, vector<int> &levels) {
+void calc_levels(vector<unordered_set<int>> &adj, vector<int> &levels) {
   assert(adj.size() == levels.size());
   unordered_set<int> visited;
   queue<pair<int, int>> bfs;
@@ -36,7 +37,8 @@ void calc_levels(vector<vector<bool>> &adj, vector<int> &levels) {
     levels.at(curr.first) = curr.second;
     visited.insert(curr.first);
     for (unsigned int i = 0; i < adj.size(); i++) {
-      if (adj.at(curr.first).at(i)) {
+      // if (adj.at(curr.first).at(i)) {
+      if (adj.at(curr.first).find(i) != adj.at(curr.first).end()) {
         bfs.push(make_pair(i, curr.second + 1));
       }
     }
@@ -52,7 +54,10 @@ int main() {
   vector<int> y(n + m);
   vector<int> r(n);
 
-  vector<vector<bool>> adj(n + m + 2, vector<bool>(n + m + 2, false));
+  // vector<vector<bool>> adj(n + m + 2, vector<bool>(n + m + 2, false));
+  vector<unordered_set<int>> adj(n + m + 2);
+  int s = adj.size() - 2;
+  int t = adj.size() - 1;
 
   for (int i = 0; i < n; i++) {
     int x_val, y_val, r_val;
@@ -79,16 +84,19 @@ int main() {
       int y2 = y[j];
       int r_val = r[i];
       if (valid(x1, y1, x2, y2, r_val)) {
-        adj[i][j] = true;
+        // adj[i][j] = true;
+        adj.at(i).insert(j);
       }
     }
   }
 
   for (int i = n; i < n + m; i++) {
-    adj[i][adj.size() - 1] = true;
+    // adj[i][adj.size() - 1] = true;
+    adj.at(i).insert(t);
   }
   for (int i = 0; i < n; i++) {
-    adj[adj.size() - 2][i] = true;
+    // adj[adj.size() - 2][i] = true;
+    adj.at(s).insert(i);
   }
 
   // // cout << "  a b c d e 1 2 3 4 5 s t" << endl;
@@ -123,8 +131,6 @@ int main() {
   // cout << endl;
 
   stack<int> dfs;
-  int s = adj.size() - 2;
-  int t = adj.size() - 1;
   dfs.push(adj.size() - 2);
   while (!dfs.empty()) {
     int curr = dfs.top();
@@ -133,7 +139,8 @@ int main() {
       int parent_node = parent.at(t);
       int current_node = t;
       bool valid = false;
-      if (adj.at(parent_node).at(current_node)) {
+      // if (adj.at(parent_node).at(current_node)) {
+      if (adj.at(parent_node).find(current_node) != adj.at(parent_node).end()) {
         // path.push(make_pair(parent_node, current_node));
         valid = true;
       }
@@ -141,7 +148,9 @@ int main() {
       // adj.at(parent_node).at(current_node) = false;
       // adj.at(current_node).at(parent_node) = true;
       while (valid && parent_node != -1) {
-        valid = valid && adj.at(parent_node).at(current_node);
+        // valid = valid && adj.at(parent_node).at(current_node);
+        valid = valid && adj.at(parent_node).find(current_node) !=
+                             adj.at(parent_node).end();
         if (!valid) {
           break;
         }
@@ -160,7 +169,14 @@ int main() {
           // cout << "l: " << l << " r: " << r << endl;
           path.pop();
 
-          swap(adj.at(l).at(r), adj.at(r).at(l));
+          // swap(adj.at(l).at(r), adj.at(r).at(l));
+          if (adj.at(l).find(r) != adj.at(l).end()) {
+            adj.at(l).erase(r);
+            adj.at(r).insert(l);
+          } else {
+            adj.at(r).erase(l);
+            adj.at(l).insert(r);
+          }
         }
       }
 
@@ -184,7 +200,9 @@ int main() {
     }
     dfs.pop();
     for (unsigned int i = 0; i < adj.size(); i++) {
-      if (adj.at(curr).at(i) && levels.at(curr) == levels.at(i) - 1) {
+      // if (adj.at(curr).at(i) && levels.at(curr) == levels.at(i) - 1) {
+      if (adj.at(curr).find(i) != adj.at(curr).end() &&
+          levels.at(curr) == levels.at(i) - 1) {
         dfs.push(i);
         parent.at(i) = curr;
       }
@@ -216,12 +234,13 @@ int main() {
   //   cout << endl;
   // }
 
-  int out = 0;
-  for (int i = 0; i < n; i++) {
-    if (adj.at(s).at(i)) {
-      out++;
-    }
-  }
+  int out = adj.at(s).size();
+  // int out = 0;
+  // for (int i = 0; i < n; i++) {
+  // if (adj.at(s).find(i) != ) {
+  // out++;
+  // }
+  // }
   cout << out << endl;
 
   return 0;
